@@ -1,0 +1,79 @@
+ <div class="row mt-3">
+
+    <h1>Built-in Structural Directive</h1>
+    <h3>(1) *ngIf structural directive</h3>
+    <h5 class="spacer"><u>Use of *ngIf directive</u></h5>
+    <div class="col-md-4 border">
+      <div *ngIf="true">Simple Mostly used method (*ngIf="true") with any tag other than ng-template </div>
+    </div>
+    <div class="col-md-4 border">
+      <p>This will not work out, (*ngIf="true") with ng-template</p>
+      <ng-template *ngIf="true">NgIf directive in ng-template</ng-template>
+    </div>
+    <div class="col-md-4 border">
+      <ng-template [ngIf]="true">Way of using ngIf with ng-template: ([ngIf]="true")</ng-template>
+    </div>
+
+    <h5 class="spacer"><u>*ngIf: Use of else block</u></h5>
+    <div class="col-md-12">
+      <div *ngIf="false else elseBlock";>This is if-block, shown only if condition is true</div>
+      <ng-template #elseBlock>Else-block, shown only if condition is false</ng-template>
+    </div>
+
+    <!-- <h3>Use ngNonBindable built-in directive to stop evaluation.</h3>
+    <p ngNonBindable>This should not evaluate: {{ 1 + 1 }}</p> -->
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3>(2) *ngFor structural directive</h3>
+      <div class="forBlock">
+        <!-- <cdk-virtual-scroll-viewport itemSize="100">
+          <li *cdkVirtualFor="let item of arr">
+              Print stuff here
+              {{item.name}}
+          </li>
+        </cdk-virtual-scroll-viewport> -->
+        <p *ngFor="let item of arr; let i=index; trackBy:trackByItems">{{item.name}}</p>
+        <!-- <table class="table">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+          </tr>
+          <tr *ngFor="let item of arr; let i=index; trackBy:trackByItems">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+          </tr>
+        </table> -->
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addNumber()">Add new number</button>
+    </div>
+
+    <div class="col-md-6">
+      <table class="table">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+        </tr>
+        <tr *ngFor="let item of (adminStream | async)">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+
+  <hr>
+  <div class="row">
+    <h3>(3) *ngSwitch structural directive</h3>
+    <div [ngSwitch]="5">
+    <!-- <div [ngSwitch]="2"> -->
+      <p *ngSwitchCase="1">Admin-1</p>
+      <p *ngSwitchCase="2">Admin-2</p>
+      <p *ngSwitchCase="3">Admin-3</p>
+      <p *ngSwitchDefault>Default Case</p>
+    </div>
+  </div>

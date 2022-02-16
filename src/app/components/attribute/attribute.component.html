@@ -1,0 +1,44 @@
+<div class="row mt-3">
+
+    <h1>Built-in Attribute Directive</h1>
+    <h3>(1) ngClass Attribute directive</h3>
+    <div class="col-md-6">
+        Will add class 'red' if given condition is true:
+        <button type="button" class="btn btn-primary" [ngClass]="{'red': true}">Button</button><br>
+        Add class 'red' if given condition is true else add class 'blue':
+        <button type="button" class="btn btn-primary" [ngClass]="false ? 'red' : 'blue'">Button</button><br>
+        Add multiple class using function
+        <button type="button" class="btn btn-primary" [ngClass]="getClass()">Button</button><br>
+    </div>
+</div>
+
+
+<hr>
+<div class="row">
+    <h3>(2) ngStyle structural directive</h3>
+    <div class="col-md-6">
+        <div [ngStyle]="{'backgroundColor': 'grey'}">
+            <p>Give css as object: Key as property name and value as css value</p>
+        </div>
+        <div [ngStyle]="{'backgroundColor': false ? 'grey' : 'green'}">
+            <p>Give conditionally css value</p>
+        </div>
+        <div [ngStyle]="styles">
+            <p>Multiple styles using variable</p>
+        </div>
+    </div>
+</div>
+
+
+<hr>
+<div class="row">
+    <h3>(3) ngModel structural directive</h3>
+    <div class="col-md-6">
+        <p>Useful for two-way data-binding(Gives you only control-value)</p>
+        <input type="text" class="form-control" [(ngModel)]="userName">
+        {{userName}}
+        <p>Useful to get ngModel object of any control(Gives you whole control-object)</p>
+        <input type="text" class="form-control" name="city" ngModel #city='ngModel' required>
+        <button type="button" class="btn btn-success" (click)="onSubmit(city)" [disabled]="city.invalid">Submit</button>
+    </div>
+</div>

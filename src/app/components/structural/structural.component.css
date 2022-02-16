@@ -1,0 +1,11 @@
+.forBlock{
+    display: block;
+    height: 200px;
+    width: 500px;
+    overflow: auto;
+}
+
+.spacer {
+    padding-top: 15px;
+    /* padding-bottom: 5px */
+}
